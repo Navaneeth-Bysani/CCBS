@@ -31,7 +31,7 @@ async function main() {
   const waitForConfirmation = (user, booking) => {
     new NoReplyMail(
       "no-reply@iitbbs.ac.in",
-      `${user.mailId}`, ////map the user mail here
+      `${user.emailId}`, ////map the user mail here
       "Status of your Booking",
       `     Your Booking request is sent and currently is waiting for confirmation. Even if it gets confirmed, it may happen that your booking may be cancelled due to clash of another booking by a higher authority",
       "CCBS website link for see booking status of bookling: \n ${JSON.stringify(
@@ -45,7 +45,7 @@ async function main() {
   const bookingCancellation = (conflictingBooking) => {
     new NoReplyMail(
       "no-reply@iitbbs.ac.in",
-      `${conflictingBooking.user.mailId}`,
+      `${conflictingBooking.user.emailId}`,
       "Cancellation of your Booking Request",
       "     Your recent Booking Request has been cancelled as there was a slot clash with another booking done by a higher authority. You will have to re-book yook your slot at some other time on the website again.",
       "CCBS website link" ////  isnert CCBS website URL
@@ -55,7 +55,7 @@ async function main() {
   const bookingConfirmation = (user, booking) => {
     new NoReplyMail(
       "no-reply@iitbbs.ac.in",
-      `${user.mailId}`,
+      `${user.emailId}`,
       "Confirmation of your Booking",
       `     As of now, your recent booking is confirmed. Keep on checking the website for the status of your booking: \n ${JSON.stringify(
         booking,
@@ -69,7 +69,7 @@ async function main() {
   const superBookingConfirmation = (user, booking) => {
     new NoReplyMail(
       "no-reply@iitbbs.ac.in",
-      `${user.mailId}`,
+      `${user.emailId}`,
       "Confirmation of your Booking",
       `     Your bookingis confirmed. Booking details are: \n ${JSON.stringify(
         booking,
@@ -80,32 +80,27 @@ async function main() {
     );
   };
 
-  const bookingReminder = new NoReplyMail(
-    "no-reply@iitbbs.ac.in",
-    "user.mail",
-    "Reminder for your booking in Community Centre",
-    "     As of now, your recent booking is confirmed and is from __time to __time on __date",
-    "CCBS website link for see booking status of bookling" //// insert CCBS webside URL for seeing status of booking
-  );
+  // const bookingReminder = new NoReplyMail(
+  //   "no-reply@iitbbs.ac.in",
+  //   "user.mail",
+  //   "Reminder for your booking in Community Centre",
+  //   "     As of now, your recent booking is confirmed and is from __time to __time on __date",
+  //   "CCBS website link for see booking status of bookling" //// insert CCBS webside URL for seeing status of booking
+  // );
 
   // send mail with defined transport object
   //const sentMail = await transporter.sendMail(noReplyMail);
 
-  console.log("Message sent: %s", sentMail.messageId);
+  //console.log("Message sent: %s", sentMail.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
   // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(sentMail));
+  //console.log("Preview URL: %s", nodemailer.getTestMessageUrl(sentMail));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
 main().catch(console.error);
 
 module.exports = {
-  transporter,
-  bookingCancellation,
-  waitForConfirmation,
-  bookingConfirmation,
-  superBookingConfirmation,
-  bookingReminder,
+  main
 };
