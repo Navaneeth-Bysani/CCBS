@@ -1,0 +1,11 @@
+# Google OAuth client configuration
+GOOGLE_CLIENT_ID='70554988672-2q8bqirlbfues4mak0u9novrl7e2u0rn.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET='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'
+REDIRECT_URI='http://localhost:3000/free/oauth/redirect'
+
+# MongoDB configuration
+mongo_url='mongodb+srv://ccbooking:ccbookingsystem@cluster0.hyyed.mongodb.net/CCBS?retryWrites=true&w=majority'
+
+# Server configuration
+CCBS_SECRET_KEY='7yhijqwn*kq^)j#apv5^4*y-_kuxvnr_(ci7mr&$5c3o&h+a_%'
+PORT=8000

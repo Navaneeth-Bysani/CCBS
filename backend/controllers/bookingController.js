@@ -143,6 +143,8 @@ const createBooking = async (req, res) => {
   let message =
     "There are already slots booked on those days so book other slots";
   //This will check for conflict booking and if it exist then it will populate the details of the booking and proceed according to main idea
+  console.log("till here ok")
+  console.log(conflictbookings,"conflict bookings")
   if (conflictbookings.length > 0) {
     conflictbookings.map(async (user) =>
       user.populate("bookedBy").then((conflictbooking) => {
@@ -168,7 +170,7 @@ const createBooking = async (req, res) => {
             );
             let sentMail = null;
             //mail the super admin that his booking has been confirmed
-            nodemailerSendMail(nodemailer.superBookingConfirmation,req.user,bookingDetailsForMail);
+            //nodemailerSendMail(nodemailer.superBookingConfirmation,req.user,bookingDetailsForMail);
             // sentMail = nodemailer.transporter.sendMail(
             //   nodemailer.superBookingConfirmation(
             //     conflictbooking.bookedBy,

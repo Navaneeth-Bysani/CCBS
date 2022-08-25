@@ -11,6 +11,9 @@ const transporter = nodemailer.createTransport({
     user: process.env.NODEMAILER_ID, // generated ethereal user    //replace this with username no-reply@iitbbs.ac.in
     pass: process.env.NODEMAILER_PASSWORD, // generated ethereal password   //replace this with our no-reply account password as process.env.emailPassword
   },
+  tls: {
+    rejectUnauthorized: false
+}
 });
 
 class NoReplyMail {
